@@ -18,6 +18,7 @@ dt <- readr::read_csv(file = "~/Downloads/IDEEL Secret Santa 2018 .csv") %>%
 #----------------------------------------------------------------------------------------------------
 
 secret_santa <-function(names){
+  names <- names[!duplicated(names)]
   n <- length(names)
   ret <- tibble(from = names, to = rep(NA, n))
 
